@@ -127,7 +127,7 @@ All our models are saved in the each of the model subdirectories subdirectory wi
     ```
 5. Load saved model .pt file.
     ```python
-    model = models.mobilenet_v2(pretrained=False, num_classes = n_classes)
+    model = models.mobilenet_v2(pretrained=False, num_classes = n_classes)#replace model name
     state_dict = torch.load(model_path)
     model.load_state_dict(state_dict)
     ```
