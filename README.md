@@ -16,3 +16,43 @@ pip install Matplotlib
 pip install pytorch torchvision
 pip install sklearn
 ```
+
+## Folder Structure
+.
+├── Inceptionv3
+│   ├── D2_Inception_v3_10classes.ipynb
+│   ├── InceptionV3_20classes.ipynb
+│   ├── InceptionV3_kfold_2class_dataset.ipynb
+│   ├── Inception_V3_2_classes_TL_finetunning.ipynb
+│   ├── Inceptionv3_2classes.ipynb
+│   ├── Inceptionv3_2classes_TL_deeptunning.ipynb
+│   ├── Models_backup
+│   │   <<saved model files>>
+│   ├── reports
+│   │   <<model reports>>
+│   ├── t-SNE_20classes.ipynb
+│   └── t-SNE_2classes.ipynb
+├── MobileNet
+│   ├── D2_MobileNet_v2_10classes.ipynb
+│   ├── MobileNetV2_20classes-TL-finetunning.ipynb
+│   ├── MobileNetV2_20classes.ipynb
+│   ├── MobileNetv2_2classes.ipynb
+│   ├── MobileNetv2_hyperparameter_tunning_20classes.ipynb
+│   ├── Models_backup
+│   │   <<saved model files>>
+│   ├── mobileNetv2_20classes_TL_Deeptunning.ipynb
+│   ├── reports
+│   │   <<Model reports>>
+│   ├── t-SNE_20classes.ipynb
+│   └── t-SNE_2classes.ipynb
+├── ResNet
+│   ├── Model_backup
+│   │  <<saved model files>>
+│   ├── ResNet18_Hyperparameter_tunning_2_class_dataset.ipynb
+│   ├── Resnet18_20classes.ipynb
+│   ├── Resnet_18_2classes.ipynb
+│   ├── reports
+│   │   <<Model reports>>
+│   ├── t-SNE_20classes.ipynb
+│   └── t-SNE_2classes.ipynb
+
