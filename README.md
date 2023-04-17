@@ -76,12 +76,12 @@ pre-processed images are present in the datasets folder
 ## Training/Validation Process
 We will train the model for 50 epochs with a batch size of 64 using stochastic gradient descent (SGD) optimizer with a learning rate of 0.001 and a momentum of 0.9. We will use the cross-entropy loss function and monitor the validation accuracy during training.
 
-Loading datasets
-1. Using the steps in the .ipynb file load dataset from Dataset subdirectory.
+
+1. Loading datasets using the steps in the .ipynb file load dataset from Dataset subdirectory.
     ```python
     path = "../Datasets/dataset_20_classes/"
     ```
-2. using transform function to pre-process and apply transformations on the dataset.
+2. Using transform function to pre-process and apply transformations on the dataset.
     ```python
     def transform(dataset):
      train_transforms = transforms.Compose([transforms.Resize((224,224)),transforms.ToTensor()])
@@ -89,7 +89,7 @@ Loading datasets
      train_loader=torch.utils.data.DataLoader(dataset=train_dataset,batch_size=32,shuffle=True)
      mean,std=get_mean_std(train_loader)
      train_transforms = transforms.Compose([
-        transforms.Resize((224,224)),
+        transforms.Resize((224,224)),#should be 299,299 for inception
         transforms.RandomHorizontalFlip(),
         transforms.RandomRotation(10),
         transforms.ToTensor(),
@@ -109,5 +109,46 @@ Loading datasets
 4. Create train/validation loaders. 
     ```python
     train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(dataset, [train_size, val_size,test_size])
+    training_loader=torch.utils.data.DataLoader(dataset=train_dataset,batch_size=Batch_size,shuffle=True,drop_last=False,num_workers=0)
+    val_loader=torch.utils.data.DataLoader(dataset=val_dataset,batch_size=Batch_size,shuffle=False,drop_last=False,num_workers=0)
     ```
 5. Pass it to the epoch loop for training and validation. 
+
+## Instructions on how to run the pre-trained model on the provided sample test dataset
+
+All our models are saved in the each of the model subdirectories subdirectory with the name Model_backup. Those could be used to test model on the sample dataset. 
+
+1. Loading datasets using the steps in the .ipynb file load dataset from Dataset subdirectory. 
+2. Using transform function to pre-process and apply transformations on the dataset.
+3. Split the dataset into 70:10:20,( Not Needed for 2 classes dataset, as split is from the source)
+4. Create test loaders 
+    ```python
+    testing_loader = torch.utils.data.DataLoader(test_dataset, batch_size=32, shuffle=False)
+    ```
+5. Load saved model .pt file.
+    ```python
+    model = models.mobilenet_v2(pretrained=False, num_classes = n_classes)
+    state_dict = torch.load(model_path)
+    model.load_state_dict(state_dict)
+    ```
+6. Evaluate model
+    ```python
+    def evaluate_model(model,test_loader):
+        model.eval()
+        predicted_correct =0
+        total = 0
+        with torch.no_grad():
+            for data in test_loader:
+                images,labels = data
+                images = images.to(device)
+                labels = labels.to(device)
+                total+=labels.size(0)
+                outputs = model(images)
+                _,predicted = torch.max(outputs,1)
+                predicted_correct += (predicted == labels).sum().item()
+        epoch_accuracy = 100.0* predicted_correct/total
+        print("Testing Data: Epoch Accuracy: %.3f"%(epoch_accuracy))
+    return epoch_accuracy
+
+    evaluate_model(model,testing_loader)
+    ```
