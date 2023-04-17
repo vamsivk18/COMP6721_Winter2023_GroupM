@@ -18,6 +18,8 @@ pip install sklearn
 ```
 
 ## Folder Structure
+
+```bash
 .
 ├── Inceptionv3
 │   ├── D2_Inception_v3_10classes.ipynb
@@ -56,3 +58,4 @@ pip install sklearn
 │   ├── t-SNE_20classes.ipynb
 │   └── t-SNE_2classes.ipynb
 
+```
