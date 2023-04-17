@@ -29,7 +29,7 @@ pip install sklearn
 │   ├── Inceptionv3_2classes.ipynb
 │   ├── Inceptionv3_2classes_TL_deeptunning.ipynb
 │   ├── Models_backup
-│   │   <<saved model files>>
+│   │   <<model files>>
 │   ├── reports
 │   │   <<model reports>>
 │   ├── t-SNE_20classes.ipynb
@@ -41,7 +41,7 @@ pip install sklearn
 │   ├── MobileNetv2_2classes.ipynb
 │   ├── MobileNetv2_hyperparameter_tunning_20classes.ipynb
 │   ├── Models_backup
-│   │   <<saved model files>>
+│   │   <<model files>>
 │   ├── mobileNetv2_20classes_TL_Deeptunning.ipynb
 │   ├── reports
 │   │   <<Model reports>>
@@ -49,7 +49,7 @@ pip install sklearn
 │   └── t-SNE_2classes.ipynb
 ├── ResNet
 │   ├── Model_backup
-│   │  <<saved model files>>
+│   │  <<model files>>
 │   ├── ResNet18_Hyperparameter_tunning_2_class_dataset.ipynb
 │   ├── Resnet18_20classes.ipynb
 │   ├── Resnet_18_2classes.ipynb
