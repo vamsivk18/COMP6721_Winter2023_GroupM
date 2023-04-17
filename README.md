@@ -116,7 +116,7 @@ We will train the model for 50 epochs with a batch size of 64 using stochastic g
 
 ## Instructions on how to run the pre-trained model on the provided sample test dataset
 
-All our models are saved in the each of the model subdirectories subdirectory with the name Model_backup. Those could be used to test model on the sample dataset. 
+Our repository contains multiple subdirectories, each representing a trained model. The directory for each model is named "Model_backup" and contains the saved files for that model. These files can be used to test the corresponding model on a sample dataset.
 
 1. Loading datasets using the steps in the .ipynb file load dataset from Dataset subdirectory. 
 2. Using transform function to pre-process and apply transformations on the dataset.
