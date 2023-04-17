@@ -59,3 +59,8 @@ pip install sklearn
 │   └── t-SNE_2classes.ipynb
 
 ```
+
+Parent direct contains
+1. Sub directory Datasets with contains cleaned imagedatasets with names as per there class.
+2. Sub directory with model name contains .ipynb files with suffix of number of classes it has programmed for. modelname_<<number of classes>>classes.ipynb
+3. Sub directory named Model_backup contains all the saved model .pt files. 
